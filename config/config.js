@@ -1,14 +1,8 @@
-{
+require("dotenv").config();
+module.exports = {
   "development": {
     "username": "postgres",
-    "password": null,
-    "database": "applik8",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
-  "devWindows": {
-    "username": "postgres",
-    "password": 7365,
+    "password": process.env.PASSWORD || null,
     "database": "applik8",
     "host": "127.0.0.1",
     "dialect": "postgres"
