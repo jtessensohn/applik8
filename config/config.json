@@ -1,0 +1,19 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "applik8",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "devWindows": {
+    "username": "postgres",
+    "password": 7365,
+    "database": "applik8",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABSE_URL"
+  }
+}
