@@ -1,10 +1,21 @@
 var express = require('express');
+const db = require('../models');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/chartpath', function(req, res, next) {
-  res.render('chartpath', { title: 'Express' });
+
+
+
+router.get('/', function(req, res, next) { // /:id
+    res.render("chartpath")
 });
+
+
+
+router.get("/title", async (req, res) => {
+  const data = await db.SalaryRate.findAll()
+  res.json(data)
+
+})
 
 
 
