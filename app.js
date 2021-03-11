@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const db = require('./models');
 const logger = require('morgan');
 const es6Renderer = require('express-es6-template-engine');
 const db = require("./models")
@@ -20,6 +23,21 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+const store = new SequelizeStore({ db: db.sequelize })
+app.use(
+  session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: false,
+      maxAge: 2592000,
+    },
+    store: store,
+  })
+)
+store.sync();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -30,6 +48,9 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
+app.get('/register', (req, res) => {
+  res.render('register');
+})
 // app.get('/chartpath', (req, res) => {
 //   res.render('chartpath')
 // })
