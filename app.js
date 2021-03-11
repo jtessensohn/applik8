@@ -6,9 +6,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
 const logger = require('morgan');
 const es6Renderer = require('express-es6-template-engine');
+const db = require("./models")
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const chartPathRouter = require('./routes/chartpath');
 
 const app = express();
 
@@ -39,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/chartpath', chartPathRouter);
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -47,6 +51,9 @@ app.get('/', (req, res) => {
 app.get('/register', (req, res) => {
   res.render('register');
 })
+// app.get('/chartpath', (req, res) => {
+//   res.render('chartpath')
+// })
 
 
 module.exports = app;
