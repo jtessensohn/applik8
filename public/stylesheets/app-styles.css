@@ -1,0 +1,22 @@
+.app-submit-form{
+    border: 2px solid black;
+    border-radius: 4px;
+    padding-top: 8px;
+    margin: 2%;
+  }
+  #notes{
+    background-color:aliceblue;
+    padding-left: 1%;
+    margin-left: 2%;
+  }
+  #submit-btn{
+    margin-left: 2%;
+    margin-bottom: 1%;
+  }
+  .form{
+    margin-left: 1%;
+  }
+  .app-correct-form{
+    border: 2px solid black;
+    margin: 2%;
+  }

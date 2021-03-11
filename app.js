@@ -6,6 +6,7 @@ const es6Renderer = require('express-es6-template-engine');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const applicationRouter = require('./routes/application-panel')
 
 const app = express();
 
@@ -21,9 +22,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/application', applicationRouter)
 
 app.get('/', (req, res) => {
   res.render('home');
 })
+
 
 module.exports = app;
