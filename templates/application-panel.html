@@ -32,6 +32,7 @@
               <td class="followUpDate">${application.followUpDate}</td> 
               <td class="notes">${application.notes? application.notes : ''}</td>
               <td><button class="edit-btn" data-id="${application.id}">Edit</button></td>
+              <td><button class="dlt-btn" data-id="${application.id}">Delete</button></td>
             </tr>`
           }).join('')}
         </tbody>
@@ -44,10 +45,10 @@
         <input type="text" id="position" name="position" required><br><br>
         <label for="salary" class="form">Salary:</label>
         <input type="number" id="salary" name="salary" required><br><br>
-        <label for="date" class="form">Date applied:</label>
-        <input type="datetime-local" id="date" name="date" required><br><br>
-        <label for="datefollow" class="form">Follow Up Date:</label>
-        <input type="datetime-local" id="datefollow" name="datefollow" required><br><br>
+        <label for="appDate" class="form">Date applied:</label>
+        <input type="date" id="appDate" name="appDate" required><br><br>
+        <label for="followUpDate" class="form">Follow Up Date:</label>
+        <input type="date" id="followUpDate" name="followUpDate" required><br><br>
         <textarea name="notes" id="notes" placeholder="Enter comment here"></textarea><br><br>
         <input type="submit" id="submit-btn">
       </form>
@@ -64,12 +65,13 @@
           <label for="salary" class="form">Salary:</label>
           <input type="number" id="salary" name="salary" required><br><br>
           <label for="date" class="form">Date applied:</label>
-          <input type="datetime-local" id="date" name="date" required><br><br>
+          <input type="date" id="date" name="date" required><br><br>
           <label for="datefollow" class="form">Follow Up Date:</label>
-          <input type="datetime-local" id="datefollow" name="datefollow" required><br><br>
+          <input type="date" id="datefollow" name="datefollow" required><br><br>
           <textarea name="notes" id="notes" placeholder="Enter comment here"></textarea><br><br>
           <input type="submit" id="submit-btn">
         </form>
+        <a href="/users/logout"><button>Logout</button></a>
 <script src="/app-pub.js"></script>
         
 </body>
