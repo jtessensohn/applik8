@@ -6,7 +6,6 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
 const logger = require('morgan');
 const es6Renderer = require('express-es6-template-engine');
-const db = require("./models")
 
 
 const indexRouter = require('./routes/index');
@@ -58,5 +57,6 @@ app.get('/register', (req, res) => {
 // app.get('/chartpath', (req, res) => {
 //   res.render('chartpath')
 // })
+
 
 module.exports = app;
