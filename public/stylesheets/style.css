@@ -7,3 +7,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+.nav-item {
+  justify-content: space-between;
+  display: inline;
+  padding-right: 25px;
+}
