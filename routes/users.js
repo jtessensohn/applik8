@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const db = require('../models');
 const bcrypt = require('bcrypt');
+const app = require('../app');
+
 
 
 /* GET users listing. */
@@ -50,13 +52,13 @@ router.post('/login', async (req, res) => {
 
   if (!user) {
     return res.status(404).render('error', {
-      locals: { error: 'could not find user with tthat email' }
+      locals: { error: 'could not find user with that email' }
     })
   }
 
   req.session.user = user;
 
-  res.redirect('/application-panel')
+  res.redirect('/application')
 })
 
 router.get('/logout', (req, res) => {
