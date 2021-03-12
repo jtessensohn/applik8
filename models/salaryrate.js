@@ -16,7 +16,32 @@ module.exports = (sequelize, DataTypes) => {
   };
   SalaryRate.init({
     title: DataTypes.STRING,
-    median: DataTypes.INTEGER
+    median: DataTypes.INTEGER,
+    years: {
+      type: DataTypes.VIRTUAL,
+      get: function() {
+        const median = this.median;
+        console.log(median)
+        return [
+          Math.round(median*0.77), 
+          Math.round(median*0.78),
+          Math.round(median*0.80),
+          Math.round(median*0.86),
+          Math.round(median*0.89), 
+          Math.round(median*0.92),
+          Math.round(median*0.96), 
+          Math.round(median*1), 
+          Math.round(median*1.04),
+          Math.round(median*1.06),
+          Math.round(median*1.07),
+          Math.round(median*1.08),
+          Math.round(median*1.09),
+          Math.round(median*1.10),
+          Math.round(median*1.11),
+          Math.round(median*1.14)
+        ]
+      } 
+    }
   }, {
     sequelize,
     modelName: 'SalaryRate',
