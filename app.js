@@ -22,7 +22,7 @@ app.set('view engine', 'html')
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const store = new SequelizeStore({ db: db.sequelize })

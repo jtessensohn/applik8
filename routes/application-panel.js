@@ -1,10 +1,12 @@
 const db = require('../models')
 const express = require('express');
+
 const { application } = require('express');
 const app = require('../app');
 const checkAuth = require('../checkAuth');
 const user = require('../models/user');
 // const { route } = require('.');
+
 
 
 const router = express.Router({
@@ -51,7 +53,9 @@ router.post('/', checkAuth, (req, res) => {
 
 
 
+
 router.get('/', checkAuth, function (req, res) {
+
 
 
     db.Application.findAll()
@@ -64,6 +68,27 @@ router.get('/', checkAuth, function (req, res) {
         })
 })
 
+
+router.patch('/:id', function (req, res) {
+    // check if application exsists
+    console.log(req.body)
+           db.Application.update({
+                company: req.body.company || application.company,
+                position: req.body.position || application.position,
+                salary: req.body.salary || application.salary,
+                appDate: req.body.appDate || application.appDate,
+                followUpDate: req.body.followUpDate || application.followUpDate,
+                notes: req.body.notes || application.notes,
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+           
+       
+        .then((application) => {
+            console.log(application)
+            res.json()
 
 router.patch('/', checkAuth, function (req, res) {
     db.Application.create({
@@ -84,8 +109,20 @@ router.patch('/', checkAuth, function (req, res) {
         }
 
         })
+
+    // if doesn't exist, 404
+    // on success, update application (database)
+    // return success response
     })
 
+    router.delete('/:id', function (req, res) {
+        console.log("DELETE application")
+        Application.findByIdAndRemove(req.params.id).then((application) => {
+          res.redirect('/');
+        }).catch((err) => {
+          console.log(err.message);
+        })
+      })
 
 
 module.exports = router
