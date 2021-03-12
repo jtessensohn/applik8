@@ -21,4 +21,14 @@ router.get("/title", checkAuth, async (req, res) => {
 
 
 
+// GET /api/todos
+router.get("/api/todos", (req, res) => {
+  db.query('SELECT * FROM todos todos ORDER BY id')
+  .then(results => {
+    res.json(results); //send back results from db as JSON response
+  })
+})
+
+
+
 module.exports = router;
