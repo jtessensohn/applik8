@@ -2,15 +2,16 @@ const db = require('../models')
 const express = require('express');
 const { application } = require('express');
 const app = require('../app');
+const checkAuth = require('../checkAuth');
 // const { route } = require('.');
 
 
 const router = express.Router({
     caseSensitive: true
-  });
+});
 
 
-router.post('/', (req, res) => {
+router.post('/', checkAuth, (req, res) => {
     db.Application.create({
         company: req.body.company,
         position: req.body.position,
@@ -32,7 +33,7 @@ router.post('/', (req, res) => {
 
 
 
-router.get('/', function (req, res) {
+router.get('/', checkAuth, function (req, res) {
 
 
     db.Application.findAll()
@@ -46,7 +47,7 @@ router.get('/', function (req, res) {
 })
 
 
-router.patch('/', function (req, res) {
+router.patch('/', checkAuth, function (req, res) {
     db.Application.create({
         company: req.body.company,
         position: req.body.position,

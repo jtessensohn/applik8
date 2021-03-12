@@ -1,17 +1,18 @@
 var express = require('express');
 const db = require('../models');
 var router = express.Router();
+const checkAuth = require('../checkAuth')
 
 
 
 
-router.get('/', function(req, res, next) { // /:id
+router.get('/', checkAuth, function(req, res, next) { // /:id
     res.render("chartpath")
 });
 
 
 
-router.get("/title", async (req, res) => {
+router.get("/title", checkAuth, async (req, res) => {
   const data = await db.SalaryRate.findAll()
   res.json(data)
 
