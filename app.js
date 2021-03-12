@@ -30,9 +30,6 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
-// app.get('/chartpath', (req, res) => {
-//   res.render('chartpath')
-// })
 
 
 module.exports = app;
