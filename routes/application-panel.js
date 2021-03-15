@@ -1,11 +1,11 @@
 const db = require('../models')
 const express = require('express');
 
-const { application } = require('express');
-const app = require('../app');
+
+
 const checkAuth = require('../checkAuth');
-const user = require('../models/user');
-// const { route } = require('.');
+
+
 
 
 
@@ -89,7 +89,10 @@ router.patch('/:id', function (req, res) {
         .then((application) => {
             console.log(application)
             res.json()
-
+        })
+    })
+    
+        
 router.patch('/', checkAuth, function (req, res) {
     db.Application.create({
         company: req.body.company,
@@ -116,13 +119,16 @@ router.patch('/', checkAuth, function (req, res) {
     })
 
     router.delete('/:id', function (req, res) {
-        console.log("DELETE application")
-        Application.findByIdAndRemove(req.params.id).then((application) => {
-          res.redirect('/');
-        }).catch((err) => {
-          console.log(err.message);
+        db.Application.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(deleted => {
+            if (deleted === 0) {
+                res.json({error: 'Error!!!'})
+            }
         })
+        res.status(204).json({sucess: 'Success'})
       })
-
-
+      
 module.exports = router
