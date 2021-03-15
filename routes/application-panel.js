@@ -37,8 +37,8 @@ router.post('/', checkAuth, (req, res) => {
         salary: req.body.salary,
         appDate: req.body.date,
         followUpDate: req.body.datefollow,
-        notes: req.body.notes
-        // UserId
+        notes: req.body.notes,
+        UserId: req.session.user.id
     }).then(application => {
         res.redirect('/application');
     }).catch(error => {
@@ -58,7 +58,11 @@ router.get('/', checkAuth, function (req, res) {
 
 
 
-    db.Application.findAll()
+    db.Application.findAll({
+        where: {
+            UserId: req.session.user.id
+        }
+    })
         .then(applications => {
             res.render('application-panel', {
                 locals: {
@@ -125,5 +129,4 @@ router.patch('/:id', function (req, res) {
             })
         })
 })
-
             module.exports = router
