@@ -10,8 +10,6 @@ fetchData()
 
 
 
-
-
 let input = 0;
 const dropdown = document.querySelector(".dropdown-menu");
 fetchData().then((jobLists) => {
@@ -22,14 +20,6 @@ fetchData().then((jobLists) => {
     })
     dropdown.innerHTML = createLi.join("");
 })
-
-// function getDropDownValue(input) {
-//     const dropdownValue = document.querySelector("#jobLi");
-//     return input = indexOf(dropdownValue.value)
-// }
-// getDropDownValue();
-
-
 
 
 function renderChart(input) {
@@ -51,7 +41,6 @@ function renderChart(input) {
     // console.log('Fetch Year Data', fetchYearData())
 
     fetchYearData().then((data) => {
-
         let wrapper = document.getElementById('myChart');
         wrapper.innerHTML = ("");
         let ctx = document.createElement('canvas')
@@ -70,9 +59,33 @@ function renderChart(input) {
                         'rgba(255, 206, 86, 0.1)',
                         'rgba(75, 192, 192, 0.1)',
                         'rgba(153, 102, 255, 0.1)',
+                        'rgba(255, 159, 64, 0.1)',
+                        'rgba(255, 99, 132, 0.1)',
+                        'rgba(54, 162, 235, 0.1)',
+                        'rgba(255, 206, 86, 0.1)',
+                        'rgba(75, 192, 192, 0.1)',
+                        'rgba(153, 102, 255, 0.1)',
+                        'rgba(255, 159, 64, 0.1)',
+                        'rgba(255, 99, 132, 0.1)',
+                        'rgba(54, 162, 235, 0.1)',
+                        'rgba(255, 206, 86, 0.1)',
+                        'rgba(75, 192, 192, 0.1)',
+                        'rgba(153, 102, 255, 0.1)',
                         'rgba(255, 159, 64, 0.1)'
                     ],
                     borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
@@ -95,6 +108,9 @@ function renderChart(input) {
                 }
             }
         });
+
+        wrapper.style.boxShadow = "0px 0px 15px 5px rgba(0,0,0,0.45)"
+        wrapper.style.backgroundColor = "rgb(216, 229, 241)"
     })
 }
 
@@ -151,7 +167,7 @@ let careerChart = new Chart(ctp, {
     options: {events:['click'], title: {text: ''}},
     data: {
         labels: ['Year 0', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', 'Year 6', 'Year 7', 'Year 8', 'Year 9', 'Year 10', 'Year 11', 'Year 12', 'Year 13', 'Year 14', 'Year 15'],
-        datasets: []
+        datasets: [],
     },tooltips: {
         enabled: false
     },
@@ -174,9 +190,50 @@ submitForm.addEventListener("submit", (e) => {
     const job = jobData.find(currentJob => currentJob.id == jobId)
     const newData = {
         label: job.title,
-        data: new Array(16) 
+        data: new Array(16),
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.1)',
+            'rgba(54, 162, 235, 0.1)',
+            'rgba(255, 206, 86, 0.1)',
+            'rgba(75, 192, 192, 0.1)',
+            'rgba(153, 102, 255, 0.1)',
+            'rgba(255, 159, 64, 0.1)',
+            'rgba(255, 99, 132, 0.1)',
+            'rgba(54, 162, 235, 0.1)',
+            'rgba(255, 206, 86, 0.1)',
+            'rgba(75, 192, 192, 0.1)',
+            'rgba(153, 102, 255, 0.1)',
+            'rgba(255, 159, 64, 0.1)',
+            'rgba(255, 99, 132, 0.1)',
+            'rgba(54, 162, 235, 0.1)',
+            'rgba(255, 206, 86, 0.1)',
+            'rgba(75, 192, 192, 0.1)',
+            'rgba(153, 102, 255, 0.1)',
+            'rgba(255, 159, 64, 0.1)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
     };
     newData.data[+yearValue] = job.years[+yearValue]
     careerChart.data.datasets.push(newData)
     careerChart.update();
-})
+});

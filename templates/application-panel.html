@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     ${head}
     <title>App panel</title>
+
 </head>
+
 <body>
+
   ${navbar}
     <table class="table">
         <thead>
@@ -55,24 +60,26 @@
 
 
 
-      <br><br><br>
 
-      <form class="app-submit-form" action="/application" method="POST">
-          <label for="company" class="form">Comapany Name:</label>
-          <input type="text" id="company" name="company" required><br><br>
-          <label for="position" class="form">Position:</label>
-          <input type="text" id="position" name="position" required><br><br>
-          <label for="salary" class="form">Salary:</label>
-          <input type="number" id="salary" name="salary" required><br><br>
-          <label for="date" class="form">Date applied:</label>
-          <input type="date" id="date" name="date" required><br><br>
-          <label for="datefollow" class="form">Follow Up Date:</label>
-          <input type="date" id="datefollow" name="datefollow" required><br><br>
-          <textarea name="notes" id="notes" placeholder="Enter comment here"></textarea><br><br>
-          <input type="submit" id="submit-btn">
-        </form>
-        <a href="/users/logout"><button>Logout</button></a>
-<script src="/app-pub.js"></script>
-        
+  <br><br><br>
+
+  <form class="app-submit-form" action="/application" method="POST">
+    <label for="company" class="form">Comapany Name:</label>
+    <input type="text" id="company" name="company" required><br><br>
+    <label for="position" class="form">Position:</label>
+    <input type="text" id="position" name="position" required><br><br>
+    <label for="salary" class="form">Salary:</label>
+    <input type="number" id="salary" name="salary" required><br><br>
+    <label for="date" class="form">Date applied:</label>
+    <input type="date" id="date" name="date" required><br><br>
+    <label for="datefollow" class="form">Follow Up Date:</label>
+    <input type="date" id="datefollow" name="datefollow" required><br><br>
+    <textarea name="notes" id="notes" placeholder="Enter comment here"></textarea><br><br>
+    <input type="submit" id="submit-btn">
+  </form>
+  <a href="/users/logout"><button>Logout</button></a>
+  <script src="/app-pub.js"></script>
+
 </body>
+
 </html>
