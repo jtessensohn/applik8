@@ -100,7 +100,7 @@ height: 250px;
     margin-left: 5px;
     font-size: 10px;
   }
-  #chartOptions1, #chartOptions2 {
+  #chartOption1, #chartOption2 {
     display: flex;
     flex-direction: column;
   }
