@@ -1,14 +1,22 @@
 var express = require('express');
 const db = require('../models');
 var router = express.Router();
-const checkAuth = require('../checkAuth')
+const checkAuth = require('../checkAuth');
+const app = require('../app');
 
 
 
 
 router.get('/', checkAuth, function(req, res, next) { // /:id
-    res.render("chartpath")
-});
+    res.render("chartpath", {
+      partials: {
+        head: '/partials/head',
+        navbar: '/partials/navbar'
+      }
+    })
+    
+  });
+
 
 
 

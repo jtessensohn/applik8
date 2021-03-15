@@ -2,64 +2,92 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    ${head}
     <title>Chart Path</title>
 </head>
 
-<body>
-    <h1>ChartPath</h1>
+<body>  
+  ${navbar}
 
-    <div id="myChart"></div>
+  <br><br><br>
 
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown button
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-        </ul>
+  <div id="mainContent">
+    <h2 class="h2Chart">Salary Projection Per Career</h2>
+
+    <!-- <div id="placeHolderChart"></div> -->
+    <div id="chartOption1">
+      <div id="cardBody1">
+        <div class="card text-white bg-dark cardOptions1" style="max-width: 20rem; ">
+          <div class="card-header">Select a career from the drop-down menu to see a projected Salary over the course of
+            15 years.</div>
+          <button class="btn btn-secondary dropdown-toggle ml bg-dark" type="button" id="dropdownMenuButton2"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Choose a Career
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+          </ul>
+        </div>
+      </div>
+        <div id="myChart"></div>
+        
+      </div>
+        
+      <br><br><br>
+      <hr>
+      <br><br><br>
+      <h2 class="h2Chart">Chart Your Own Career Path</h2>
+      <div id="chartOption2">
+        <div id="cardBody2">
+          <div class="card text-white bg-dark cardOptions2" style="max-width: 20rem; ">
+            <div class="card-header">Select a Year and a Position to Chart your own Career
+              Path using the drop-down choices below:</div>
+            
+              <form class="form-inline" id="myForm">
+                <p>
+                  <label class="my-1 mr-2" for="year">Choose a Year</label>
+                  <select class="custom-select my-1 mr-sm-2 allSelects0 form-select bg-dark"
+                    aria-label="Default select example" id="year">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                  </select>
+                  <br>
+                  <label class="my-1 mr-2" for="jobPosition">Choose a Position</label>
+                  <select class="custom-select my-1 mr-sm-2 allSelects1  form-select bg-dark"
+                    aria-label="Default select example" id="jobPosition">
+                  </select>
+                </p>
+                <button type="submit" class="btn btn-primary my-1 bg-dark" id="submitButton">Plot</button>
+              </form>
+          </div>
+        </div>
+        <div id="careerChart"></div>
       </div>
 
+    </div>
 
-        <form class="form-inline" id="myForm">
-          <p>
-          <label class="my-1 mr-2" for="year">Year</label>
-          <select class="custom-select my-1 mr-sm-2 allSelects0" id="year">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-          </select>
-        </p>
-        <p>
-          <label class="my-1 mr-2" for="jobPosition">Job Position</label>
-          <select class="custom-select my-1 mr-sm-2 allSelects1" id="jobPosition">
-          </select>
-        </p>
-          <button type="submit" class="btn btn-primary my-1" id="submitButton">Submit</button>
-        </form>
-
-        <div id="careerChart"></div>
-
-        
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
-    <script src="/chart.js"></script>
+    <script src="/Chart.js"></script>
     <script src="/chartpath.js"></script>
 
 </body>

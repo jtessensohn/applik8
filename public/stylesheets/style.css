@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: aquamarine;
 }
@@ -7,3 +6,121 @@ body {
 a {
   color: #00B7FF;
 }
+
+#mainContent {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px 50px 10px
+
+}
+
+#chartOption1 {
+  margin-top: 5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+#chartOption2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5em;
+}
+
+
+
+#myChart {
+  width: 60%;
+}
+
+#careerChart {
+  width: 60%;
+  background-color: rgb(216, 229, 241);
+  box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.45);
+  
+}
+
+.nav-item {
+  justify-content: space-between;
+  display: inline;
+  padding-right: 25px;
+}
+
+
+
+.allSelects1, .allSelects0 {
+ color: white;
+
+}
+
+
+.cardOptions1 {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+margin-left: 100px;
+font-size: 15px;
+background-color: rgba(255, 255, 255, 0.5);
+padding: 0px 20px 0px 20px;
+box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.45);
+height: 250px;
+}
+
+
+
+.cardOptions2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 100px;
+  align-items: center;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0px 20px 0px 20px;
+  box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.45);
+  height: 400px;
+  }
+
+
+.h2Chart {
+  font-weight: bold;
+  margin-left: 100px;
+}
+
+@media only screen and (max-width:1000px){
+  .h2Chart {
+    margin-left: 10px;
+  }
+}
+
+
+@media only screen and (max-width: 550px) {
+  .cardOptions1, .cardOptions2 {
+    margin-left: 5px;
+    font-size: 10px;
+  }
+  #chartOptions1, #chartOptions2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+}
+
+
+@media only screen and (max-width:440px){
+  .h2Chart {
+    margin-left: 2px;
+    font-size: 20px;
+  }
+  #chartOption1, #chartOption2 {
+    margin-top: 1em;
+  }
+  .cardOptions1, .cardOptions2 {
+    margin-left: 2px;
+    font-size: 10px;
+  }
+  
+}
+

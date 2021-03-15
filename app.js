@@ -58,5 +58,6 @@ app.get('/register', (req, res) => {
 //   res.render('chartpath')
 // })
 
+app.use('../public/images/', express.static('../public/images'));
 
 module.exports = app;
