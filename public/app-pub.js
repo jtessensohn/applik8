@@ -33,31 +33,44 @@ document.querySelectorAll('.edit-btn').forEach(button => {
     })
 })
 
-document.querySelector('.dlt-btn').addEventListener('click', function(event) {
-    event.preventDefault()
-    const id = this.dataset.id
-    fetch(`/application`, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        method: 'DELETE',
-        body: JSON.stringify({
-            company: id.elements.company.value,
-            position: id.elements.position.value,
-            salary: id.elements.salary.value,
-            appDate: id.elements.appDate.value,
-            followUpDate: id.elements.followUpDate.value,
-            notes: id.elements.notes.value,
-        })
-    })
+
+const deleteApplication = (id) => {
+    axios.delete(`/application/${id}`)
     .then(res => {
-        if (res.status === 404) {
-            alert('Didn\'t delete')
-        } else {
-            location.reload()
-        }
+        location.reload()
     })
+    .catch(error => alert(error))
+}
+
+
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('dlt-btn')) {
+        const id = e.target.dataset.id
+        deleteApplication(id)
+    } 
+        
+    
 })
+
+// document.querySelector('.dlt-btn').addEventListener('click', function(e) {
+//     e.preventDefault()
+//     console.log(e.target)
+//     const id = e.target.dataset.id
+//     console.log(id)
+//     fetch(`/application/${id}`, {
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         method: 'DELETE',
+//     })
+//     .then(res => {
+//         if (res.status === 404) {
+//             alert('Didn\'t delete')
+//         } else {
+//             console.log('it work')
+//         }
+//     })
+// })
 
 
 
