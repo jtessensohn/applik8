@@ -13,3 +13,7 @@ a {
   display: inline;
   padding-right: 25px;
 }
+
+.d-flex {
+  justify-content: right;
+}
