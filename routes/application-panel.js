@@ -13,21 +13,6 @@ const router = express.Router({
     caseSensitive: true
 });
 
-// function getUserId() {
-//     db.User.findAll()
-//     .then((users) => {
-//         users.forEach((user) => {
-//             if (!req.session.user) {
-//                 return null
-//             } else if (req.session.user) {
-//                 return user.UserId
-//             }
-//         })
-//     })
-// }
-
-// let userId = getUserId();
-// console.log(userId)
 
 
 router.post('/', checkAuth, (req, res) => {
@@ -67,6 +52,10 @@ router.get('/', checkAuth, function (req, res) {
             res.render('application-panel', {
                 locals: {
                     applications
+                },
+                partials: {
+                    head: '/partials/head',
+                    navbar: '/partials/navbar'
                 }
             });
         })

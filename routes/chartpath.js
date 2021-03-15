@@ -8,7 +8,12 @@ const app = require('../app');
 
 
 router.get('/', checkAuth, function(req, res, next) { // /:id
-    res.render("chartpath")
+    res.render("chartpath", {
+      partials: {
+        head: '/partials/head',
+        navbar: '/partials/navbar'
+      }
+    })
     
   });
 
