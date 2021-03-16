@@ -14,6 +14,7 @@
 <body>
 
   ${navbar}
+
   <h1 style="text-align: center;">My Applications</h1>
   <table class="table">
 
@@ -52,7 +53,7 @@
   <form class="app-update-form bg-primary text-white" id="appFormYa2"  style="display:none;" action="/application" method="POST">
     <h5 class="h5">Edit Application</h5>
     <div class="form-group">
-      <label for="company" class="form">Comapany Name:</label>
+      <label for="company" class="form">Company Name:</label>
       <input type="text" id="company" name="company" class="form-control" required><br><br>
     </div>
     <div class="form-group">
@@ -85,7 +86,7 @@
   <form class="app-submit-form bg-dark text-white" id="appFormYa" action="/application" method="POST">
     <h5 class="h5">Add an Application to your Applications List</h5>
     <div class="form-group">
-      <label for="company" class="form">Comapany Name:</label>
+      <label for="company" class="form">Company Name:</label>
       <input type="text" id="company" name="company" class="form-control" required><br><br>
     </div>
     <div class="form-group">
@@ -111,6 +112,7 @@
     <input class="btn btn-primary" type="submit" value="Add Application to your List">
   </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
   <script src="/app-pub.js"></script>
 
 

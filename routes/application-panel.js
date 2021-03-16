@@ -115,7 +115,6 @@ router.patch('/', checkAuth, function (req, res) {
             })
         })
 
-
     // if doesn't exist, 404
     // on success, update application (database)
     // return success response
