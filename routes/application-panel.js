@@ -84,9 +84,9 @@ router.patch('/:id', function (req, res) {
             res.json()
 
         })
-    })
-    
-        
+})
+
+
 router.patch('/', checkAuth, function (req, res) {
     db.Application.create({
         company: req.body.company,
@@ -96,14 +96,14 @@ router.patch('/', checkAuth, function (req, res) {
         followUpDate: req.body.datefollow,
         notes: req.body.notes
     })
-    .then(application => {
-        res.redirect('/application');
-    }).catch(error => {
-        if (error.errors) {
-        res.json(error.errors.map(e => e.message))
-        } else {
-            res.json({error: 'failed to create application'})
-        }
+        .then(application => {
+            res.redirect('/application');
+        }).catch(error => {
+            if (error.errors) {
+                res.json(error.errors.map(e => e.message))
+            } else {
+                res.json({ error: 'failed to create application' })
+            }
 
             router.delete('/:id', function (req, res) {
                 console.log("DELETE application")
@@ -118,19 +118,19 @@ router.patch('/', checkAuth, function (req, res) {
     // if doesn't exist, 404
     // on success, update application (database)
     // return success response
-    })
+})
 
-    router.delete('/:id', function (req, res) {
-        db.Application.destroy({
-            where: {
-                id: req.params.id
-            }
-        }).then(deleted => {
-            if (deleted === 0) {
-                res.json({error: 'Error!!!'})
-            }
-        })
-        res.status(204).json({sucess: 'Success'})
-      })
-      
+router.delete('/:id', function (req, res) {
+    db.Application.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(deleted => {
+        if (deleted === 0) {
+            res.json({ error: 'Error!!!' })
+        }
+    })
+    res.status(204).json({ sucess: 'Success' })
+})
+
 module.exports = router
