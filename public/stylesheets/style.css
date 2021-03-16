@@ -71,7 +71,6 @@ height: 250px;
 }
 
 
-
 .cardOptions2 {
   display: flex;
   flex-direction: column;
@@ -160,4 +159,11 @@ h1 {
 #headToLogin {
   display:flex;
   flex-direction: column;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px;
+  padding: 10px;
 }
