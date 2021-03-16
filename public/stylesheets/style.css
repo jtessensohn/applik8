@@ -1,6 +1,9 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: aquamarine;
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(17,2,73,1) 100%);
+  color:seashell;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 a {
@@ -146,3 +149,15 @@ h1 {
   
 }
 
+#logoimg {
+  margin: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.45);
+  text-align: center;
+}
+
+
+#headToLogin {
+  display:flex;
+  flex-direction: column;
+}

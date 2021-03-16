@@ -24,7 +24,7 @@
 
   #appFormYa {
     padding: 20px 100px 20px 100px;
-    margin: 20px 300px 50px 300px;
+    margin: 20px 400px 50px 400px;
     box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.45);
     border-radius: 10px;
     
@@ -32,7 +32,7 @@
   }
   #appFormYa2 {
     padding: 20px 100px 20px 100px;
-    margin: 20px 300px 20px 300px;
+    margin: 20px 400px 20px 400px;
     box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.45);
     border-radius: 10px;
     
@@ -45,5 +45,6 @@
 .table {
   font-size: 15px;
   background-color: rgba(47, 79, 79, 0.5);
+  color:seashell
 }
 

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <h1><img src="./images/logo.png" alt=""></h1>
+  <h1><a href="/" class="logo"><img src="./images/logo.png" id="logoimg"alt=""></a></h1>
   <div id="loginFormContent">
     <form id="loginForm" action="/users/login" method="post">
       <h1 id="loginh1">Login</h1>
@@ -21,7 +21,7 @@
         <label for="email">Email address</label>
         <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp"
           placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small id="emailHelp" class="form-text " style="color:rgba(255, 235, 205, 0.425)">We'll never share your email with anyone else.</small>
       </div>
       <br>
       <div class="form-group">
@@ -32,6 +32,7 @@
         <button type="submit" class="btn btn-dark">Login</button>
       </form>
       <br>
+      <div>Don't have an account yet?</div>
       <a href="/register"><button class="btn btn-secondary">Register A New Account</button></a>
     <br>
   </div>
