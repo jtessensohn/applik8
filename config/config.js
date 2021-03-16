@@ -8,6 +8,12 @@ module.exports = {
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "DATABSE_URL"
+    "use_env_variable": "DATABSE_URL",
+    "dialectOptions":{
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
   }
 }
