@@ -9,18 +9,28 @@
   <title>Register</title>
 </head>
 <body>
-  <h1><img src="../images/logo.png" alt=""></h1>
-  <form action="/users/register" method="post">
-    <h2>Register</h2>
-    <p>
-      <label for="email">Email</label><br>
-      <input type="text" name="email" id="email" required>
-    </p>
-    <p>
-      <label for="password">Password</label><br>
-      <input type="password" name="password" id="password" required>
-    </p>
-    <button type="submit">Register</button>
-  </form>
+  <h1><a href="/application" class="logo"><img src="./images/logo.png" id="logoimg"alt=""></a></h1>
+  <div id="loginFormContent">
+    <form id="loginForm" action="/users/register" method="post">
+      <h1 id="loginh1">Register</h1>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+          placeholder="Enter email">
+        <small id="emailHelp" class="form-text" style="color:rgba(255, 235, 205, 0.425)">We'll never share your email with anyone else.</small>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+        <br>
+        <button type="submit" class="btn btn-dark">Register</button>
+      </form>
+      <br>
+      <div id="headToLogin">
+        <div>Already Have an Account?</div>
+       <a href="/"><button type="submit" class="btn btn-secondary">Go to Login Page</button></a>
+      </div>
 </body>
 </html>
