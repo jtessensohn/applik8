@@ -3,88 +3,114 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    ${head}
-    <title>App panel</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  ${head}
+  <title>App panel</title>
 
 </head>
 
 <body>
 
   ${navbar}
-    <table class="table">
+  <h1 style="text-align: center;">My Applications</h1>
+  <table class="table">
 
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Company</th>
-            <th scope="col">Position</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Application Date</th>
-            <th scope="col">Follow Up Date</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-            ${applications.map((application) => {
-              return `<tr id="row-${application.id}">
-                <td class="id">${application.id}</td> 
-                <td class="company">${application.company}</td> 
-                <td class="position">${application.position}</td> 
-                <td class="salary">${application.salary}</td> 
-                <td class="appDate">${application.appDate}</td> 
-                <td class="followUpDate">${application.followUpDate}</td> 
-                <td class="notes">${application.notes? application.notes : ''}</td>
-                <td><button class="edit-btn" data-id="${application.id}">Edit</button></td>
-                <td><button class="dlt-btn" data-id="${application.id}">Delete</button></td>
-              </tr>`
-            }).join('')}
-        </tbody>
-      </table>
-      
-
-      <br><br><br><br><br><br><br><br>
-      <form class="app-update-form" style="display: none;">
-        <h5 class="h5">Update your applications</h5>
-        <label for="company" class="form">Comapany Name:</label>
-        <input type="text" id="company" name="company" required><br><br>
-        <label for="position" class="form">Position:</label>
-        <input type="text" id="position" name="position" required><br><br>
-        <label for="salary" class="form">Salary:</label>
-        <input type="number" id="salary" name="salary" required><br><br>
-        <label for="appDate" class="form">Date applied:</label>
-        <input type="date" id="appDate" name="appDate" required><br><br>
-        <label for="followUpDate" class="form">Follow Up Date:</label>
-        <input type="date" id="followUpDate" name="followUpDate" required><br><br>
-        <textarea name="notes" id="notes" placeholder="Enter comment here"></textarea><br><br>
-        <input type="submit" id="submit-btn">
-      </form>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Company</th>
+        <th scope="col">Position</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Application Date</th>
+        <th scope="col">Follow Up Date</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${applications.map((application) => {
+      return `<tr id="row-${application.id}">
+        <td class="id">${application.id}</td>
+        <td class="company">${application.company}</td>
+        <td class="position">${application.position}</td>
+        <td class="salary">${application.salary}</td>
+        <td class="appDate">${application.appDate}</td>
+        <td class="followUpDate">${application.followUpDate}</td>
+        <td class="notes">${application.notes? application.notes : ''}</td>
+        <td><button class="edit-btn btn-dark" data-id="${application.id}">Edit</button></td>
+        <td><button class="dlt-btn btn-dark" data-id="${application.id}">Delete</button></td>
+      </tr>`
+      }).join('')}
+    </tbody>
+  </table>
 
 
-
-
-
-  <br><br><br>
-
-  <form class="app-submit-form" action="/application" method="POST">
-    <label for="company" class="form">Comapany Name:</label>
-    <input type="text" id="company" name="company" required><br><br>
-    <label for="position" class="form">Position:</label>
-    <input type="text" id="position" name="position" required><br><br>
-    <label for="salary" class="form">Salary:</label>
-    <input type="number" id="salary" name="salary" required><br><br>
-    <label for="date" class="form">Date applied:</label>
-    <input type="date" id="date" name="date" required><br><br>
-    <label for="datefollow" class="form">Follow Up Date:</label>
-    <input type="date" id="datefollow" name="datefollow" required><br><br>
-    <textarea name="notes" id="notes" placeholder="Enter comment here"></textarea><br><br>
-    <input type="submit" id="submit-btn">
+  <br><br><br><br><br><br><br><br>
+  <form class="app-update-form bg-primary text-white" id="appFormYa2"  style="display:none;" action="/application" method="POST">
+    <h5 class="h5">Edit Application</h5>
+    <div class="form-group">
+      <label for="company" class="form">Comapany Name:</label>
+      <input type="text" id="company" name="company" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="position" class="form">Position:</label>
+      <input type="text" id="position" name="position" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="salary" class="form">Salary:</label>
+      <input type="number" id="salary" name="salary" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="date" class="form">Date applied:</label>
+      <input type="date" id="date" name="date" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="datefollow" class="form">Follow Up Date:</label>
+      <input type="date" id="datefollow" name="datefollow" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+    <label for="notes">Any Notes or Comments?</label>
+    <textarea name="notes" id="notes" class="form-control" placeholder="Enter comment here"></textarea><br><br>
+    </div>
+    <input class="btn btn-dark" type="submit" value="Edit This Application">
   </form>
-  <a href="/users/logout"><button>Logout</button></a>
+
+
+
+
+
+  <form class="app-submit-form bg-dark text-white" id="appFormYa" action="/application" method="POST">
+    <h5 class="h5">Add an Application to your Applications List</h5>
+    <div class="form-group">
+      <label for="company" class="form">Comapany Name:</label>
+      <input type="text" id="company" name="company" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="position" class="form">Position:</label>
+      <input type="text" id="position" name="position" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="salary" class="form">Salary:</label>
+      <input type="number" id="salary" name="salary" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="date" class="form">Date applied:</label>
+      <input type="date" id="date" name="date" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+      <label for="datefollow" class="form">Follow Up Date:</label>
+      <input type="date" id="datefollow" name="datefollow" class="form-control" required><br><br>
+    </div>
+    <div class="form-group">
+    <label for="notes">Any Notes or Comments?</label>
+    <textarea name="notes" id="notes" class="form-control" placeholder="Enter comment here"></textarea><br><br>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Add Application to your List">
+  </form>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="/app-pub.js"></script>
 
 
